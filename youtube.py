@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 browser = webdriver.Chrome(executable_path="chromedriver.exe")
 
 # MỞ URL CỦA YOUTUBE
-browser.get("https://www.youtube.com/watch?v=-Wduzor_Y1Q")
+browser.get("https://www.youtube.com/watch?v=La46uttxyQk")
 sleep(random.randint(2, 5))
 
 # POST LIST
