@@ -32,7 +32,7 @@ t = 0
 idx = 0
 height = 0
 post_list = []
-while(t < 3):
+while(t < 2):
     # SCROLL SCREEN
     browser.execute_script("window.scrollTo(0, "+ str(height) + ");")
     SCROLL_PAUSE_TIME = 0.2
