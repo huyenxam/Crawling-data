@@ -389,7 +389,7 @@ def crawl(url, keyword):
                         if reply_content != "":
                             reply_list.append({"id": k+1,
                                                "post_date": reply_time,
-                                               "post_item_id": idx,
+                                               "post_item_id": i,
                                                "content": reply_content,
                                                "status_dict": status_dict_reply})
                     
@@ -397,14 +397,14 @@ def crawl(url, keyword):
                     if comment_content != "":
                         comment_list.append({"id": j+1,
                                              "post_date": comment_time,
-                                             "post_item_id": idx,
+                                             "post_item_id": i,
                                              "content": comment_content,
                                              "status_dict": status_dict_comment,
                                              "replys": reply_list})
 
                 # APPEND POST
                 if content != "":
-                    post_list.append({"id":idx,
+                    post_list.append({"id":i,
                                       "post_date": post_date,
                                       "username": user,
                                       "setiment": "",
