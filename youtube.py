@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 browser = webdriver.Chrome(executable_path="chromedriver.exe")
 
 # MỞ URL CỦA YOUTUBE
-browser.get("https://www.youtube.com/watch?v=La46uttxyQk")
+browser.get("https://www.youtube.com/watch?v=q-n1KLeXNXM&t=10s")
 sleep(random.randint(2, 5))
 
 # POST LIST
@@ -51,7 +51,7 @@ while True:
     # Get scroll height
     last_height = browser.execute_script("return window.scrollY")
     # Scroll down to bottom
-    browser.execute_script("window.scrollTo(0, window.scrollY + 300);")
+    browser.execute_script("window.scrollTo(0, window.scrollY + 500);")
 
     # Wait to load page
     sleep(SCROLL_PAUSE_TIME)
@@ -68,18 +68,20 @@ while True:
     l_comment_list = './/*[@id="contents"]/ytd-comment-thread-renderer'
     d_comment_list = browser.find_elements(By.XPATH, l_comment_list)
 
+    if len(d_comment_list) == idx:
+        break
+
     # MORE REPLY
     for i in range(idx+1, len(d_comment_list) +1):
         try:
-            l_reply_more = l_comment_list + "[" + str(i) + "]/div/ytd-comment-replies-renderer/div[1]/div[1]/div[1]/ytd-button-renderer/a"
-            d_reply_more = browser.find_element(By.XPATH, l_reply_more)
+            # l_reply_more = l_comment_list + "[" + str(i) + "]/div/ytd-comment-replies-renderer/div[1]/div[1]/div[1]/ytd-button-renderer/a"
+            d_reply_more = d_comment_list[i-1].find_element(By.XPATH, './/*[@id="more-replies-icon"]')
             d_comment_list[i-1].location_once_scrolled_into_view
             d_reply_more.click()
             sleep(2)
         except:
             pass
     sleep(random.randint(1, 3))
-
 
     # FOR COMMENT
     for i in range(idx + 1, len(d_comment_list) + 1):
@@ -168,7 +170,7 @@ post_list.append({"context": content,
                     "total comment": total_comment, 
                     "comments": comments_list})
 
-# print(post_list)
+print(post_list)
 sleep(random.randint(1, 3))
 
 # SAVE FILE

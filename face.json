@@ -1,168 +1,156 @@
 [
     {
-        "status": {
-            "All": "2706",
-            "Like": "1.7K",
-            "Haha": "879",
-            "Sad": "83",
-            "Wow": "12",
-            "Love": "4",
-            "Care": "2"
+        "id": 0,
+        "post_date": "26-9-2022 21:38",
+        "username": "Tờ Jan",
+        "setiment": "",
+        "source_division": "01",
+        "title": "Khu vực: Hà Nội, HCM, Đà Nẵng, Hải Phòng, Tiền Giang",
+        "content": "VNPT - IT tuyển dụng Fresher fulltime/parttime\nKhu vực: Hà Nội, HCM, Đà Nẵng, Hải Phòng, Tiền Giang\nCác vị trí tuyển dụng:\nLập trình (PHP, Java, .Net, Python, Nodejs, Frontend, iOS, Android, Flutter)\nManual Tester\nAICV / AI NLP (Hà Nội)\nData Engineer (Hà Nội)\nAn toàn thông tin (Hà Nội)\nGửi CV + bảng điểm để ứng tuyển\nChương trình áp dụng cho các bạn sinh viên năm cuối hoặc mới tốt nghiệp không quá 1 năm khối ngành CNTT, ATTT, Kỹ thuật phần mềm\nNhận lương lên đến 10tr/tháng tùy vị trí công việc ngay từ thời gian đào tạo\nTham gia miễn phí các khóa đào tạo chuyên môn & kỹ năng mềm\nTham gia hỗ trợ phát triển các sản phẩm với hàng chục triệu người dùng.\nĐược tư vấn & định hướng nghề nghiệp từ các Mentors - những chuyên gia hàng đầu trong lĩnh vực CNTT.\nCơ hội được tuyển dụng chính thức tại VNPT sau thời gian đào tạo với mức thu nhập năm hấp dẫn kèm các chế độ phúc lợi từ Tập đoàn VNPT\n-------------------------------------------------\nGửi hồ sơ ứng tuyển đến email: bannhansu.vnptit@vnpt.vn\nTiêu đề email ghi rõ: Họ và tên_Vị trí dự tuyển_Địa bàn ứng tuyển",
+        "url": "https://www.facebook.com/groups/174764463261090/posts/1308631666541025/?__cft__[0]=AZU7s8tjC3vz8t38LcN8S8dqJCm-FE3ihEIFkKnsHMxlYaLOvbnhpoEGToZevleXrtsfkHGTK0JXmHpdYnNzXRrobfhOtpfEobU-Tr36_u6433v68ELDJOhXQ55-DPnaHupO9DkiVLDykwyUBmuds4Cx&__tn__=%2CO%2CP-R",
+        "share": "13 lượt chia sẻ",
+        "total comment": "161 bình luận",
+        "status_dict": {
+            "Tất cả": "108",
+            "Thích": "107",
+            "Yêu thích": "1"
         },
-        "time": "12 m",
-        "content": "Sir =))",
-        "total comment": "478 comments",
-        "share": "14 shares",
         "comments": [
             {
-                "content": "Cho ai chưa biết nè, đó là https://shope.ee/2Kwxl0xxCa (từ đầu) Không phải là sẽ đâu mấy cha",
-                "time": "11 m",
-                "like": "Hide or report this",
-                "reply": []
+                "id": 1,
+                "post_date": "30-9-2022 09:25",
+                "post_item_id": 0,
+                "content": "cho em xin JD Frontend HCM với ạ.",
+                "status_dict": {},
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "30-9-2022 20:27",
+                        "post_item_id": 0,
+                        "content": "Phạm Thị Như Hiếu bạn check ib mình nhé",
+                        "status_dict": {
+                            "Thích": "1"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "post_date": "3-10-2022 20:24",
+                "post_item_id": 0,
+                "content": "Em xin jd .net hcm ạ",
+                "status_dict": {
+                    "Thích": "1"
+                },
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "4-10-2022 12:05",
+                        "post_item_id": 0,
+                        "content": "Hoàng Nhi em check ib c nhé",
+                        "status_dict": {}
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "post_date": "4-10-2022 10:52",
+                "post_item_id": 0,
+                "content": "Em xin job computer vison",
+                "status_dict": {
+                    "Thích": "1"
+                },
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "4-10-2022 11:57",
+                        "post_item_id": 0,
+                        "content": "Đỗ Tình em check ib c nhé",
+                        "status_dict": {}
+                    }
+                ]
             }
         ]
     },
     {
-        "status": {
-            "All": "4278",
-            "Like": "3K",
-            "Haha": "1K",
-            "Sad": "76",
-            "Love": "30",
-            "Wow": "15",
-            "Care": "3",
-            "Angry": "1"
+        "id": 1,
+        "post_date": "4-10-2022 16:16",
+        "username": "Nguyễn Thanh Trà",
+        "setiment": "",
+        "source_division": "01",
+        "title": "Xin phép admin!!",
+        "content": "Xin phép admin!!\n[FPT SoftWare HN - ĐN]\nTìm kiếm fresher Tháng 11\n#Fresher Đào tạo từ đầu hỗ trợ 5-9m/tháng\nVi trí:\nFresher C#/.Net\nFresher Java\nFresher Embedded\nFresher React Native\nFresher Cloud Engineer\nFresher Mobile (Android/IOS)\nFresher Automation test\nFresher Data Engineer\n- Không yêu cầu ứng viên có kinh nghiệm làm việc ngoài, chỉ cần có kinh nghiệm tham gia dự án trong lúc đi học.\n- Đào tạo lại từ đầu.\n- PV 1 vòng duy nhất.\n- Tham gia fultime t2 - t6.\nSau 3 tháng đào tạo offer 10-15m!\n#Senior #Junior full các job với offer upto 1k -1k5\nApply gửi CV về nguyenthanhtra07092004@gmail.com\nTiêu đề [Họ Tên]-[Vị trí apply]",
+        "url": "https://www.facebook.com/groups/174764463261090/posts/1314787669258758/?__cft__[0]=AZWBZ0XQOeVv7WnfCSPUdkmeVS_Ig-i8GTuo2_mjFZCiNVt7MNKYBd_0be3v0Ck6BDUo__1XGm7tRXgL5WFqjkpllHfjXE8UoKFA4ZRsF0zcVfIjyTeOQCmibsXW9SKTbpFvATb58hVeNUE_x1xnkExi&__tn__=%2CO%2CP-R",
+        "share": "4 lượt chia sẻ",
+        "total comment": "58 bình luận",
+        "status_dict": {
+            "Tất cả": "70",
+            "Thích": "68",
+            "Yêu thích": "2"
         },
-        "time": "35 m",
-        "content": "Lại bảo sai đi =)))",
-        "total comment": "578 comments",
-        "share": "51 shares",
         "comments": [
             {
-                "content": "Nó lại chuẩn vcl",
-                "time": "24 m",
-                "like": "1 reaction; see who reacted to this",
-                "reply": []
-            }
-        ]
-    },
-    {
-        "status": {
-            "All": "7684",
-            "Like": "5.3K",
-            "Haha": "2.2K",
-            "Sad": "64",
-            "Love": "15",
-            "Wow": "8",
-            "Care": "2",
-            "Angry": "1"
-        },
-        "time": "1 h",
-        "content": "Màn chốt đơn iPhone 14 khủng nhất Việt Nam ",
-        "total comment": "260 comments",
-        "share": "17 shares",
-        "comments": [
+                "id": 1,
+                "post_date": "4-10-2022 22:31",
+                "post_item_id": 1,
+                "content": "Em xin jd mobile android",
+                "status_dict": {
+                    "Tất cả": "3",
+                    "Thích": "2",
+                    "Yêu thích": "1"
+                },
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "4-10-2022 22:34",
+                        "post_item_id": 1,
+                        "content": "Tùng Anh",
+                        "status_dict": {}
+                    },
+                    {
+                        "id": 2,
+                        "post_date": "5-10-2022 10:18",
+                        "post_item_id": 1,
+                        "content": "Tùng Anh a check ib nhé",
+                        "status_dict": {}
+                    }
+                ]
+            },
             {
-                "content": "Cho ai chưa biết chủ sốp là ai nè: https://shope.ee/5fDPfiVV8i",
-                "time": "1 h",
-                "like": "Hide or report this",
-                "reply": []
-            }
-        ]
-    },
-    {
-        "status": {
-            "All": "9028",
-            "Like": "6.9K",
-            "Haha": "1.9K",
-            "Sad": "113",
-            "Love": "22",
-            "Care": "8",
-            "Wow": "7",
-            "Angry": "2"
-        },
-        "time": "2 h",
-        "content": "Linh ơi, anh yêu emmmm",
-        "total comment": "334 comments",
-        "share": "9 shares",
-        "comments": [
+                "id": 2,
+                "post_date": "4-10-2022 17:16",
+                "post_item_id": 1,
+                "content": "cho em xin jd voi",
+                "status_dict": {
+                    "Thích": "2"
+                },
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "4-10-2022 20:37",
+                        "post_item_id": 1,
+                        "content": "Nguyễn Tuấn Linh a check ib nhé",
+                        "status_dict": {}
+                    }
+                ]
+            },
             {
-                "content": "Cho ai ko hiểu này: https://shope.ee/20K7DAS5jd (2 từ đầu)",
-                "time": "2 h",
-                "like": "Hide or report this",
-                "reply": []
-            }
-        ]
-    },
-    {
-        "status": {
-            "All": "11106",
-            "Like": "9.3K",
-            "Haha": "1.5K",
-            "Sad": "132",
-            "Angry": "45",
-            "Love": "15",
-            "Wow": "11",
-            "Care": "4"
-        },
-        "time": "3 h",
-        "content": "EM CÓ MẤT GÌ ĐÂU?\nVụ hi*p d*m ở Hà Giang: tối hôm đó sau khi ăn cơm, uống rượu no nê, nghi phạm M. để ý thấy nạn nhân có biểu hiện say rượu. Ăn uống xong, chị L. phải nhờ nhân viên lễ tân đưa về phòng.\nCó sự chuẩn bị trước đến gần 1h ngày 18/9 M. đi đến gần phòng L., thấy cửa phòng không khóa, M. liền vào trong phòng nạn nhân. Sau khi vào phòng, nghi phạm gọi tên nạn nhân, nhưng không thấy nạn nhân trả lời. Biết bị hại say rượu nên M. đã thực hiện hành vi.\nChị L. sau đấy tỉnh giấc và giãy dụa, chống trả lại nhưng không thành công, đành nằm im cho M. làm.\nXong xuôi, M. thản nhiên ra ngoài hút thuốc rồi nói với nạn nhân \"em có mất gì đâu mà\"\nChia sẻ với phía cảnh sát L. cho biết cửa phòng bị kẹt khóa nên những ngày ở đây, L. không khóa được cửa. Nghĩ ở đây là chỗ quen biết và thưa dân cư, L. không đề phòng.\nSau khi sự việc xảy ra, L. muốn giải quyết nội bộ để giữ hình ảnh cho homestay cũng như địa phương. Tuy nhiên, do không nhận được phản hồi thỏa đáng nên  L. đã liên hệ với lãnh đạo xã để giải quyết.",
-        "total comment": "854 comments",
-        "share": "17 shares",
-        "comments": [
-            {
-                "content": "Em thì em có mất gì đâu",
-                "time": "3 h",
-                "like": "239 reactions; see who reacted to this",
-                "reply": []
-            }
-        ]
-    },
-    {
-        "status": {
-            "All": "34180",
-            "Like": "26K",
-            "Haha": "6.9K",
-            "Sad": "315",
-            "Love": "159",
-            "Wow": "52",
-            "Care": "35",
-            "Angry": "6"
-        },
-        "time": "3 h",
-        "content": "Chắc ai đó sẽ nhột ",
-        "total comment": "1.4K comments",
-        "share": "66 shares",
-        "comments": [
-            {
-                "content": "Cho ai chưa biết, đó chính là: https://shope.ee/5KaZ7M8IqY",
-                "time": "3 h",
-                "like": "Hide or report this",
-                "reply": []
-            }
-        ]
-    },
-    {
-        "status": {
-            "All": "30799",
-            "Like": "17K",
-            "Haha": "12K",
-            "Sad": "744",
-            "Love": "79",
-            "Wow": "40",
-            "Care": "22",
-            "Angry": "3"
-        },
-        "time": "3 h",
-        "content": "Ủa Ánh ?",
-        "total comment": "2.4K comments",
-        "share": "115 shares",
-        "comments": [
-            {
-                "content": "Cho ai ko hiểu: https://shope.ee/4V1S6nK0Jt",
-                "time": "3 h",
-                "like": "Hide or report this",
-                "reply": []
+                "id": 3,
+                "post_date": "4-10-2022 17:17",
+                "post_item_id": 1,
+                "content": "có khu vực HCM ko ạ",
+                "status_dict": {
+                    "Thích": "1"
+                },
+                "replys": [
+                    {
+                        "id": 1,
+                        "post_date": "4-10-2022 17:27",
+                        "post_item_id": 1,
+                        "content": "Vũ Văn Thiên dạ hiện tại HCM đang tuyển SAP tiếng Hàn a nhé",
+                        "status_dict": {}
+                    }
+                ]
             }
         ]
     }
