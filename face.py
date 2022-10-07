@@ -8,7 +8,7 @@ import random
 import json
 
 
-def crawl(url):
+def crawl(url, keyword):
     # KHAI BÁO BROWSER
     browser = webdriver.Chrome(executable_path="chromedriver.exe")
 
@@ -31,17 +31,17 @@ def crawl(url):
     browser.get(url)
     sleep(random.randint(1, 5))
 
-    # # SEARCH
-    # try:
-    #     d_search = browser.find_element(By.XPATH, "//div[@class='x1i64zmx']//div")
-    #     d_search.click()
-    #     sleep(random.randint(1, 3))
-    #     txtSearch = browser.find_element(By.XPATH, "//input[@class='x1i10hfl xggy1nq x1s07b3s x1kdt53j x1yc453h xhb22t3 xb5gni xcj1dhv x2s2ed0 xq33zhf xjyslct xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou xnwf7zb x40j3uw x1s7lred x15gyhx8 x9f619 xzsf02u xdl72j9 x1iyjqo2 xs83m0k xjb2p0i x6prxxf xeuugli x1a2a7pz x1n2onr6 x15h3p50 xm7lytj xsyo7zv xdvlbce xc9qbxq x1g8yoln xo6swyp x1ad04t7 x1glnyev x1ix68h3 x19gujb8']")
-    #     txtSearch.send_keys("hà nội")
-    #     txtSearch.send_keys(Keys.ENTER)
-    #     sleep(random.randint(2, 7))
-    # except:
-    #     print("error search")
+    # SEARCH
+    try:
+        d_search = browser.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div[3]/div/div/div/div[2]/div/div/div[1]/div")
+        d_search.click()
+        sleep(random.randint(1, 3))
+        txtSearch = browser.find_element(By.XPATH, "//input[@class='x1i10hfl xggy1nq x1s07b3s x1kdt53j x1yc453h xhb22t3 xb5gni xcj1dhv x2s2ed0 xq33zhf xjyslct xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou xnwf7zb x40j3uw x1s7lred x15gyhx8 x9f619 xzsf02u xdl72j9 x1iyjqo2 xs83m0k xjb2p0i x6prxxf xeuugli x1a2a7pz x1n2onr6 x15h3p50 xm7lytj xsyo7zv xdvlbce xc9qbxq x1g8yoln xo6swyp x1ad04t7 x1glnyev x1ix68h3 x19gujb8']")
+        txtSearch.send_keys(keyword)
+        txtSearch.send_keys(Keys.ENTER)
+        sleep(random.randint(2, 7))
+    except:
+        print("error search")
 
     t = 0
     idx = 0
@@ -189,7 +189,7 @@ def crawl(url):
                         status = str(d_status.get_attribute("aria-label")).split(", ")
                         if len(status) > 1:
                             status_dict[status[0]] = status[1]
-                    print(status_dict)
+                    # print(status_dict)
                 except:
                     print("Not see like")
 
@@ -430,4 +430,4 @@ def crawl(url):
     return post_list
 
 
-crawl("https://www.facebook.com/groups/174764463261090/search/?q=fresher")
+crawl("https://www.facebook.com/groups/174764463261090", "resher")
