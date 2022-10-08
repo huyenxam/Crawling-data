@@ -79,6 +79,7 @@ def crawl(url, keyword):
         d_post_list = browser.find_elements(By.XPATH, "//div[@class='x193iq5w x1xwk8fm']//div//div[@class='x1ja2u2z xh8yej3 x1n2onr6 x1yztbdb']")
         # print(len(d_post_list))
         for i in range(idx + 1, len(d_post_list) + 1):
+            idx = i
             try:
                 l_post = "//div[@class='x193iq5w x1xwk8fm']//div[" + str(i) + "]//div[@class='x1ja2u2z xh8yej3 x1n2onr6 x1yztbdb']" 
                 d_post = browser.find_element(By.XPATH, l_post)
@@ -506,7 +507,6 @@ def crawl(url, keyword):
                                   "total comment": total_comment,
                                   "status_dict": status_dict,
                                   "comments": comment_list})
-                idx = i
             except:
                 print("error post")
         
