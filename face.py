@@ -42,21 +42,22 @@ def crawl(url, keyword):
     except:
         print("error search")
 
-    idx = 0    # Số bài viết cần crawl     
+        
+    idx = 0    # Số bài viết cần crawl 
     height = 0
     post_list = []
-    while(idx < 2):
+    while(idx < 55):
         # SCROLL SCREEN
-        y_old = browser.execute_script("return window.scrollY")
         browser.execute_script("window.scrollTo(0, "+ str(height) + ");")
+        y_old = browser.execute_script("return window.scrollY")
         SCROLL_PAUSE_TIME = 0.2
         timeout = time.time() + 3
         # Get scroll height
         last_height = browser.execute_script("return window.scrollY")
         while True:
             # Scroll down to bottom
-            browser.execute_script("window.scrollTo(0, window.scrollY + 100);")
-            height += 100
+            browser.execute_script("window.scrollTo(0, window.scrollY + 400);")
+            height += 400
 
             # Wait to load page
             sleep(SCROLL_PAUSE_TIME)
@@ -84,16 +85,7 @@ def crawl(url, keyword):
                 l_post = "//div[@class='x193iq5w x1xwk8fm']//div[" + str(i) + "]//div[@class='x1ja2u2z xh8yej3 x1n2onr6 x1yztbdb']" 
                 d_post = browser.find_element(By.XPATH, l_post)
 
-                # USER
-                user = ""
-                try:
-                    d_user = d_post.find_element(By.XPATH, ".//h3[@class='x1heor9g x1qlqyl8 x1pd3egz x1a2a7pz x1gslohp x1yc453h']")
-                    user = d_user.text
-                    # print(user)
-                except:
-                    print("error user")
-                    user = ""
-
+                browser.execute_script("window.scrollTo(0, window.scrollY + 10);")
                 # URL
                 url = ""
                 try:
@@ -111,7 +103,7 @@ def crawl(url, keyword):
                     hover = ActionChains(browser).move_to_element(element_to_hover_over )
                     hover.perform()
                     sleep(random.randint(2, 5))
-                    element_to_hover_over.location_once_scrolled_into_view
+                    # element_to_hover_over.location_once_scrolled_into_view
                     d_date = browser.find_element(By.XPATH, "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1nxh6w3 x1sibtaa xo1l8bm xzsf02u x1yc453h']")
                     date = d_date.text.split(", ")
                     # date[1].split(" ") ->  ['2', 'Tháng', '10']
@@ -121,39 +113,41 @@ def crawl(url, keyword):
                     yy = date[2].split(" ")[0]
                     hour = date[2].split(" ")[2]
                     post_date = dd + "-" + mm + "-" + yy + " " + hour
+                    print(post_date)
                 except:
                     print("error time")
                     post_date = ""
-                
+
                 # SEE MORE CONTENT
                 while(True):
                     try:
                         d_see_more = d_post.find_element(By.XPATH, '//div[@class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f"]')
                         browser.execute_script("arguments[0].click();", d_see_more)
-                        sleep(random.randint(2, 4))
+                        sleep(random.randint(1, 2))
                     except:
                         print("Not see more")
                         break
                 
-                # TITLE
+                element = browser.find_element(By.XPATH, l_post)
+                element.location_once_scrolled_into_view
+                sleep(4)
+                # TITLE, CONTENT, USER, POST_DATE
+                content = ""
+                user = ""
                 title = ""
                 try:
-                    d_title = d_post.find_element(By.XPATH, ".//div[@class='x1swvt13 x1l90r2v x1pi30zi x1iorvi4']//span//div")
-                    # print(d_title.text)
-                    title = d_title.text
-                except:
-                    print("error title")
-                    title = ""
-
-                # CONTENT
-                content = ""
-                try:
-                    d_content = d_post.find_element(By.XPATH, ".//div[@class='x1swvt13 x1l90r2v x1pi30zi x1iorvi4']")
+                    d_content = d_post.find_element(By.XPATH, ".//div[@class='x9f619 x1n2onr6 x1ja2u2z x2bj2ny x1qpq9i9 xdney7k xu5ydu1 xt3gfkd xh8yej3 x6ikm8r x10wlt62 xquyuld']")
                     # print(d_content.text)
-                    content = d_content.text
+                    post = d_content.text.split("\n")
+                    user = post[0]
+                    title = post[3]
+                    content = " ".join(post[3:-8])
+                    # print("user:" + user)
+                    # print("title:" + title)
+                    print("content:" + content)
                 except:
                     print("error content")
-                    content = ""
+
                 if content == "":
                     break
                 
@@ -173,7 +167,7 @@ def crawl(url, keyword):
                 try:
                     d_status = d_post.find_element(By.XPATH, ".//span[@class='xrbpyxo x6ikm8r x10wlt62 xlyipyv x1exxlbk']")
                     browser.execute_script("arguments[0].click();", d_status)
-                    sleep(random.randint(2, 4))
+                    sleep(random.randint(1, 3))
                 except:
                     print("Not see click")
 
@@ -181,7 +175,7 @@ def crawl(url, keyword):
                 try:
                     d_more = d_status.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[1]/div')
                     browser.execute_script("arguments[0].click();", d_more)
-                    sleep(random.randint(2, 3))
+                    sleep(random.randint(1, 2))
                 except:
                     print("Not see more")
                 
@@ -202,7 +196,7 @@ def crawl(url, keyword):
                     try:
                         d_exist = d_status.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div')
                         browser.execute_script("arguments[0].click();", d_exist)
-                        sleep(random.randint(2, 5))
+                        sleep(random.randint(1, 2))
                     except:
                         print("Not see exist")
                         break
@@ -214,11 +208,10 @@ def crawl(url, keyword):
                     d_t_comment = d_post.find_element(By.XPATH, ".//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xi81zsa']")
                     # print(d_t_comment.text)
                     browser.execute_script("arguments[0].click();", d_t_comment)
-                    sleep(random.randint(1, 4))
                     total_comment = d_t_comment.text
+                    sleep(random.randint(1, 3))
                 except:
                     print("error total_comment")
-                    total_comment = ""
 
                 
                 # MORE COMMENT
@@ -261,8 +254,9 @@ def crawl(url, keyword):
                         time_to_hover_over = d_comment.find_element(By.XPATH, ".//a[@class='x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xi81zsa x1fcty0u']//span")
                         hover = ActionChains(browser).move_to_element(time_to_hover_over)
                         hover.perform()
-                        sleep(random.randint(3, 5))
+                        sleep(random.randint(3, 4))
                         time_to_hover_over.location_once_scrolled_into_view
+                        browser.execute_script("window.scrollTo(0, window.scrollY + 50);")
                         d_comment_time = browser.find_element(By.XPATH, "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xzsf02u x1yc453h']")
                         comment_time = d_comment_time.text.split(", ")
                         #  date[1].split(" ") ->  ['2', 'Tháng', '10']
@@ -283,13 +277,13 @@ def crawl(url, keyword):
                         # click
                         d_status_comment = d_comment.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
                         browser.execute_script("arguments[0].click();", d_status_comment)
-                        sleep(random.randint(2, 4))
+                        sleep(random.randint(1, 3))
                         
                         # More
                         try:
                             d_more_comment = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[1]/div')
                             browser.execute_script("arguments[0].click();", d_more_comment)
-                            sleep(random.randint(2, 5))
+                            sleep(random.randint(1, 2))
                         except:
                             print("Not see more")
 
@@ -309,7 +303,7 @@ def crawl(url, keyword):
                             try:
                                 d_exist_comment = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div')
                                 browser.execute_script("arguments[0].click();", d_exist_comment)
-                                sleep(random.randint(2, 5))
+                                sleep(random.randint(1, 3))
                             except:
                                 print("Not see exist")
                                 break
@@ -338,7 +332,7 @@ def crawl(url, keyword):
                             timereply_to_hover_over = d_reply.find_element(By.XPATH, ".//a[@class='x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xi81zsa x1fcty0u']//span")
                             hover = ActionChains(browser).move_to_element(timereply_to_hover_over)
                             hover.perform()
-                            sleep(random.randint(3, 5))
+                            sleep(random.randint(3, 4))
                             timereply_to_hover_over.location_once_scrolled_into_view
                             d_reply_time = browser.find_element(By.XPATH, "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xzsf02u x1yc453h']")
                             reply_time = d_reply_time.text.split(", ")
@@ -360,13 +354,13 @@ def crawl(url, keyword):
                             # click
                             d_status_reply = d_reply.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
                             browser.execute_script("arguments[0].click();", d_status_reply)
-                            sleep(random.randint(2, 4))
+                            sleep(random.randint(1, 3))
                             
                             # More
                             try:
                                 d_more_reply = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[1]/div')
                                 browser.execute_script("arguments[0].click();", d_more_reply)
-                                sleep(random.randint(2, 5))
+                                sleep(random.randint(1, 2))
                             except:
                                 print("Not see more")
 
@@ -386,7 +380,7 @@ def crawl(url, keyword):
                                 try:
                                     d_exist_reply = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div')
                                     browser.execute_script("arguments[0].click();", d_exist_reply)
-                                    sleep(random.randint(2, 5))
+                                    sleep(random.randint(1, 2))
                                 except:
                                     print("Not see exist")
                                     break
@@ -395,7 +389,7 @@ def crawl(url, keyword):
 
                         # REPLY LIST 2
                         reply_list2 = []
-                        d_reply_list2 = d_comment.find_elements(By.XPATH, "..//div//ul//li//div[@class='x1n2onr6 x1xb5h2r']") 
+                        d_reply_list2 = d_reply.find_elements(By.XPATH, "..//div//ul//li//div[@class='x1n2onr6 x1xb5h2r']") 
                         for h, d_reply2 in enumerate(d_reply_list2):
                             # CONTENT REPLY
                             reply_content2 = ""
@@ -416,7 +410,7 @@ def crawl(url, keyword):
                                 timereply_to_hover_over2 = d_reply2.find_element(By.XPATH, ".//a[@class='x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xi81zsa x1fcty0u']//span")
                                 hover2 = ActionChains(browser).move_to_element(timereply_to_hover_over2)
                                 hover2.perform()
-                                sleep(random.randint(3, 7))
+                                sleep(random.randint(3, 4))
                                 timereply_to_hover_over2.location_once_scrolled_into_view
                                 d_reply_time2 = browser.find_element(By.XPATH, "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xzsf02u x1yc453h']")
                                 reply_time2 = d_reply_time2.text.split(", ")
@@ -438,13 +432,13 @@ def crawl(url, keyword):
                                 # click
                                 d_status_reply2 = d_reply2.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
                                 browser.execute_script("arguments[0].click();", d_status_reply2)
-                                sleep(random.randint(2, 4))
+                                sleep(random.randint(1, 2))
                                 
                                 # More
                                 try:
                                     d_more_reply2 = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[1]/div')
                                     browser.execute_script("arguments[0].click();", d_more_reply2)
-                                    sleep(random.randint(2, 5))
+                                    sleep(random.randint(1, 2))
                                 except:
                                     print("Not see more2")
 
@@ -464,7 +458,7 @@ def crawl(url, keyword):
                                     try:
                                         d_exist_reply2 = browser.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div')
                                         browser.execute_script("arguments[0].click();", d_exist_reply2)
-                                        sleep(random.randint(2, 5))
+                                        sleep(random.randint(1, 2))
                                     except:
                                         print("Not see exist2")
                                         break
@@ -507,6 +501,16 @@ def crawl(url, keyword):
                                   "total comment": total_comment,
                                   "status_dict": status_dict,
                                   "comments": comment_list})
+                
+                # EXIST MORE COMMENT
+                try:
+                    d_ex_comment = d_post.find_element(By.XPATH, ".//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xi81zsa']")
+                    # print(d_t_comment.text)
+                    browser.execute_script("arguments[0].click();", d_ex_comment)
+                    sleep(random.randint(1, 2))
+                except:
+                    print("error total_comment")
+                
             except:
                 print("error post")
         
