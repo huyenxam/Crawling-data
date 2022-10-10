@@ -1,5 +1,3 @@
-## Crawling-data
-
 ## Crawling data
 ```bash
 python crawl(url, keyword)
@@ -7,7 +5,7 @@ python crawl(url, keyword)
 
 ## Input
 - url : đường link nhóm cần crawl
-- keyword: từ khóa cần tìm kiếm
+- keyword: từ khóa tìm kiếm
 
 ## Output
 ```bash
