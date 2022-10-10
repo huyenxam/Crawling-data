@@ -31,7 +31,9 @@ python crawl(url, keyword)
             "post_date": "30-9-2022 09:25",
             "post_item_id": 1,
             "content": "Bạn nào đi rồi hướng dẫn giúp mình lịch trình 1 ngày để có đc bộ ảnh của mùa thu HN với đám bạn thân với nạ",
-            "status_dict": {},
+            "status_dict": {
+                "Haha": "1"
+            },
             "replys": [
                 {
                     "id": 1,
