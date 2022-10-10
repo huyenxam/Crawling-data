@@ -37,7 +37,7 @@ python crawl(url, keyword)
             "replys": [
                 {
                     "id": 1,
-                    "post_date": "",
+                    "post_date": "30-9-2022 09:28",
                     "post_item_id": 1,
                     "content": "NấmHương MộcNhĩ muốn chụp thu HN hả",
                     "status_dict": {
@@ -46,7 +46,7 @@ python crawl(url, keyword)
                     "replys": [
                             {
                                 "id": 1,
-                                "post_date": "28-9-2022 13:58",
+                                "post_date": "30-9-2022 09:30",
                                 "post_item_id": 1,
                                 "content": "Uyên Uyên ib nhề",
                                 "status_dict": {
