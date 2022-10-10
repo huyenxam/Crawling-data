@@ -13,7 +13,7 @@ python crawl(url, keyword)
     "id": 1,
     "post_date": "26-9-2022 21:38",
     "username": "Tờ Jan",
-    "setiment": "",
+    "setiment": "01",
     "source_division": "01",
     "title": "Một sáng mùa Thu Hà Nội",
     "content": "Một sáng mùa Thu Hà Nội. Mùa thu, mùa mà Hà Nội đẹp như tranh, tình như thơ. Lá vàng rơi, mùi hoa sữa, không khí trong lành, mát mẻ là những thứ rất đặc trưng mà chỉ mùa thu Hà Nội mới có. Kiếm cho mình một người lang thang cùng để ôm trọn mùa thu này vào tim.",
