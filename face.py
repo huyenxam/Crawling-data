@@ -469,6 +469,7 @@ def crawl(url, keyword):
                             reply_list2.append({"id": h+1,
                                                 "post_date": reply_time2,
                                                 "post_item_id": i,
+                                                "setiment": "",
                                                 "content": reply_content2,
                                                 "status_dict": status_dict_reply2})
                         
@@ -476,6 +477,7 @@ def crawl(url, keyword):
                         reply_list.append({"id": k+1,
                                            "post_date": reply_time,
                                            "post_item_id": i,
+                                           "setiment": "",
                                            "content": reply_content,
                                            "status_dict": status_dict_reply,
                                            "replys": reply_list2})
@@ -484,6 +486,7 @@ def crawl(url, keyword):
                     comment_list.append({"id": j+1,
                                          "post_date": comment_time,
                                          "post_item_id": i,
+                                         "setiment": "",
                                          "content": comment_content,
                                          "status_dict": status_dict_comment,
                                          "replys": reply_list})
