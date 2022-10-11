@@ -30,6 +30,7 @@ python crawl(url, keyword)
             "id": 1,
             "post_date": "30-9-2022 09:25",
             "post_item_id": 1,
+            "setiment": "01",
             "content": "Bạn nào đi rồi hướng dẫn giúp mình lịch trình 1 ngày để có đc bộ ảnh của mùa thu HN với đám bạn thân với nạ",
             "status_dict": {
                 "Haha": "1"
@@ -39,6 +40,7 @@ python crawl(url, keyword)
                     "id": 1,
                     "post_date": "30-9-2022 09:28",
                     "post_item_id": 1,
+                    "setiment": "01",
                     "content": "NấmHương MộcNhĩ muốn chụp thu HN hả",
                     "status_dict": {
                         "Like": "1"
@@ -48,6 +50,7 @@ python crawl(url, keyword)
                                 "id": 1,
                                 "post_date": "30-9-2022 09:30",
                                 "post_item_id": 1,
+                                "setiment": "01",
                                 "content": "Uyên Uyên ib nhề",
                                 "status_dict": {
                                     "Sad": "1"
