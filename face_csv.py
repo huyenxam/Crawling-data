@@ -19,7 +19,7 @@ def save_csv(path):
             int(post['id_post']),
             post['content'],
             post['post_date'],
-            post['setiment'],
+            post['sentiment'],
             int(post['share']),
             int(post['source_division']),
             post['title'],
@@ -38,7 +38,7 @@ def save_csv(path):
             list_comment.append([int(comment['id_comment']),
                                 int(comment['id_post']),
                                 comment['post_date'],
-                                comment['setiment'],
+                                comment['sentiment'],
                                 comment['content']])
             # COMMENT STATUS
             status_dict_comment = comment['status_dict'].values()
@@ -51,7 +51,7 @@ def save_csv(path):
                 list_reply.append([int(reply['id_reply']),
                                     int(reply['id_comment']),
                                     reply['post_date'],
-                                    reply['setiment'],
+                                    reply['sentiment'],
                                     reply['content']])
                 # REPLY STATUS
                 status_dict_reply = reply['status_dict'].values()
