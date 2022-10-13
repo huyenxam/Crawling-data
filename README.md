@@ -21,9 +21,14 @@ python crawl(url, keyword)
     "share": "13 lượt chia sẻ",
     "total comment": "161 bình luận",
     "status_dict": {
-        "All": "108",
-        "Like": "107",
-        "Love": "1"
+        "All": 108,
+        "Like": 107,
+        "Love": 1,
+        "Care": 0,
+        "Haha": 0,
+        "Sad": 0,
+        "Angry": 0,
+        "Wow": 0
     },
     "comments": [
         {
@@ -33,8 +38,15 @@ python crawl(url, keyword)
             "setiment": "01",
             "content": "Bạn nào đi rồi hướng dẫn giúp mình lịch trình 1 ngày để có đc bộ ảnh của mùa thu HN với đám bạn thân với nạ",
             "status_dict": {
-                "Haha": "1"
-            },
+                "All": 0,
+                "Like": 0,
+                "Love": 0,
+                "Care": 0,
+                "Haha": 1,
+                "Sad": 0,
+                "Angry": 0,
+                "Wow": 0
+                },
             "replys": [
                 {
                     "id": 1,
@@ -43,20 +55,15 @@ python crawl(url, keyword)
                     "setiment": "01",
                     "content": "NấmHương MộcNhĩ muốn chụp thu HN hả",
                     "status_dict": {
-                        "Like": "1"
-                    },
-                    "replys": [
-                            {
-                                "id": 1,
-                                "post_date": "30-9-2022 09:30",
-                                "post_item_id": 1,
-                                "setiment": "01",
-                                "content": "Uyên Uyên ib nhề",
-                                "status_dict": {
-                                    "Sad": "1"
-                                }
-                            }
-                        ]
+                            "All": 0,
+                            "Like": 1,
+                            "Love": 0,
+                            "Care": 0,
+                            "Haha": 0,
+                            "Sad": 0,
+                            "Angry": 0,
+                            "Wow": 0
+                        }
                 }
             ]
         }

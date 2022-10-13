@@ -99,7 +99,7 @@ def crawl(url, keyword):
                 # TIME
                 post_date = ""
                 try:
-                    element_to_hover_over  = d_post.find_element(By.XPATH, ".//span[@class='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j']//a")
+                    element_to_hover_over  = d_post.find_element(By.XPATH, ".//a[@class='x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv xo1l8bm']")
                     hover = ActionChains(browser).move_to_element(element_to_hover_over )
                     hover.perform()
                     sleep(random.randint(2, 5))
@@ -131,6 +131,7 @@ def crawl(url, keyword):
                 element = browser.find_element(By.XPATH, l_post)
                 element.location_once_scrolled_into_view
                 sleep(4)
+
                 # TITLE, CONTENT, USER, POST_DATE
                 content = ""
                 user = ""
@@ -142,9 +143,6 @@ def crawl(url, keyword):
                     user = post[0]
                     title = post[3]
                     content = " ".join(post[3:-8])
-                    # print("user:" + user)
-                    # print("title:" + title)
-                    print("content:" + content)
                 except:
                     print("error content")
 
@@ -152,17 +150,20 @@ def crawl(url, keyword):
                     break
                 
                 # SHARE
-                share = ""
+                share = 0
                 try:
                     d_share = d_post.find_element(By.XPATH, ".//div[@class='x6s0dn4 x78zum5 x2lah0s x17rw0jw']//div[3]//span")
                     # print(d_share.text)
-                    share = d_share.text
+                    share = d_share.text.split(" ")[0]
+                    if share.find("K") > -1:
+                        share = float(share[:-1].replace(",", ".")) * 1000
+                    share = int(share)
                 except:
                     print("error share")
-                    share = ""
+                    share = 0
 
                 # LIKE, LOVE, HAHA
-                status_dict = {}
+                status_dict = {"All": 0, "Like": 0, "Love": 0, "Care": 0, "Haha": 0, "Sad": 0, "Angry": 0, "Wow": 0}
                 # click
                 try:
                     d_status = d_post.find_element(By.XPATH, ".//span[@class='xrbpyxo x6ikm8r x10wlt62 xlyipyv x1exxlbk']")
@@ -186,7 +187,10 @@ def crawl(url, keyword):
                     for d_status in d_status_list:
                         status = str(d_status.get_attribute("aria-label")).split(", ")
                         if len(status) > 1:
-                            status_dict[status_en[status[0]]] = status[1]
+                            p_x = status[1]
+                            if p_x.find("K") > -1:
+                                p_x = float(p_x[:-1].replace(",", ".")) * 1000
+                            status_dict[status_en[status[0]]] = int(p_x)
                     # print(status_dict)
                 except:
                     print("Not see like")
@@ -203,26 +207,28 @@ def crawl(url, keyword):
                 
                 
                 # TOTAL COMMENT
-                total_comment = ""
+                total_comment = 0
                 try:
                     d_t_comment = d_post.find_element(By.XPATH, ".//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xi81zsa']")
-                    # print(d_t_comment.text)
                     browser.execute_script("arguments[0].click();", d_t_comment)
-                    total_comment = d_t_comment.text
+                    # print(d_t_comment.text)
+                    total_comment = d_t_comment.text.split(" ")[0]
+                    if total_comment.find("K") > -1:
+                        total_comment = float(total_comment[:-1].replace(",", ".")) * 1000
+                    total_comment = int(total_comment)
+
                     sleep(random.randint(1, 3))
                 except:
                     print("error total_comment")
+                    total_comment = 0
 
                 
                 # MORE COMMENT
-                # timeout_comment = time.time() + 1
                 while(True):
                     try:
                         d_comment_more = d_post.find_element(By.XPATH, ".//div[@class='x1i10hfl xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x3nfvp2 x1q0g3np x87ps6o x1a2a7pz x6s0dn4 xi81zsa x1iyjqo2 xs83m0k xsyo7zv xt0b8zv']")
                         browser.execute_script("arguments[0].click();", d_comment_more)
                         sleep(random.randint(10, 20))
-                        # if time.time() > timeout_comment:
-                        #     break
                     except:
                         print("error more comment")
                         break
@@ -272,7 +278,7 @@ def crawl(url, keyword):
                         comment_time = ""
                     
                     # LIKE, LOVE, HAHA COMMENT
-                    status_dict_comment = {}
+                    status_dict_comment = {"All": 0, "Like": 0, "Love": 0, "Care": 0, "Haha": 0, "Sad": 0, "Angry": 0, "Wow": 0}
                     try:
                         # click
                         d_status_comment = d_comment.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
@@ -293,7 +299,10 @@ def crawl(url, keyword):
                             for d_status_comment in d_status_list_comment:
                                 status_comment = str(d_status_comment.get_attribute("aria-label")).split(", ")
                                 if len(status_comment) > 1:
-                                    status_dict_comment[status_en[status_comment[0]]] = status_comment[1]
+                                    co_x = status_comment[1]
+                                    if co_x.find("K") > -1:
+                                        co_x = float(co_x[:-1].replace(",", ".")) * 1000
+                                    status_dict_comment[status_en[status_comment[0]]] = int(co_x)
                             # print(status_dict_comment)
                         except:
                             print("Not see like")
@@ -323,6 +332,7 @@ def crawl(url, keyword):
                         except:
                             print("error reply content")
                             reply_content = ""
+
                         if reply_content == "":
                             break
                             
@@ -349,7 +359,7 @@ def crawl(url, keyword):
                             reply_time = ""
 
                         # LIKE, LOVE, HAHA REPLY
-                        status_dict_reply = {}
+                        status_dict_reply = {"All": 0, "Like": 0, "Love": 0, "Care": 0, "Haha": 0, "Sad": 0, "Angry": 0, "Wow": 0}
                         try:
                             # click
                             d_status_reply = d_reply.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
@@ -370,7 +380,10 @@ def crawl(url, keyword):
                                 for d_status_reply in d_status_list_reply:
                                     status_reply = str(d_status_reply.get_attribute("aria-label")).split(", ")
                                     if len(status_reply) > 1:
-                                        status_dict_reply[status_en[status_reply[0]]] = status_reply[1]
+                                        re_x = status_reply[1]
+                                        if re_x.find("K") > -1:
+                                            re_x = float(re_x[:-1].replace(",", ".")) * 1000
+                                        status_dict_reply[status_en[status_reply[0]]] = int(re_x)
                                 # print(status_dict_reply)
                             except:
                                 print("Not see like")
@@ -388,7 +401,6 @@ def crawl(url, keyword):
                             print("error statuc dict reply")
 
                         # REPLY LIST 2
-                        reply_list2 = []
                         d_reply_list2 = d_reply.find_elements(By.XPATH, "..//div//ul//li//div[@class='x1n2onr6 x1xb5h2r']") 
                         for h, d_reply2 in enumerate(d_reply_list2):
                             # CONTENT REPLY
@@ -427,7 +439,7 @@ def crawl(url, keyword):
                                 reply_time2 = ""
 
                             # LIKE, LOVE, HAHA REPLY
-                            status_dict_reply2 = {}
+                            status_dict_reply2 = {"All": 0, "Like": 0, "Love": 0, "Care": 0, "Haha": 0, "Sad": 0, "Angry": 0, "Wow": 0}
                             try:
                                 # click
                                 d_status_reply2 = d_reply2.find_element(By.XPATH, ".//div[@class='x1ja2u2z x10l6tqk x177n6bx x1ve5b48 xlshs6z']//div//div//div//span//div")
@@ -448,7 +460,10 @@ def crawl(url, keyword):
                                     for d_status_reply2 in d_status_list_reply2:
                                         status_reply2 = str(d_status_reply2.get_attribute("aria-label")).split(", ")
                                         if len(status_reply2) > 1:
-                                            status_dict_reply2[status_en[status_reply2[0]]] = status_reply2[1]
+                                            re2_x = status_reply2[1]
+                                            if re2_x.find("K") > -1:
+                                                re2_x = float(re2_x[:-1].replace(",", ".")) * 1000
+                                            status_dict_reply2[status_en[status_reply2[0]]] = int(re2_x)
                                     # print(status_dict_reply2)
                                 except:
                                     print("Not see like2")
@@ -466,42 +481,41 @@ def crawl(url, keyword):
                                 print("error statuc dict reply2")
                             
                             # APPEND REPLY_LIST
-                            reply_list2.append({"id": h+1,
-                                                "post_date": reply_time2,
-                                                "post_item_id": i,
-                                                "setiment": "",
-                                                "content": reply_content2,
-                                                "status_dict": status_dict_reply2})
+                            reply_list.append({"id_reply": k+h+2,
+                                               "id_comment": j+1,
+                                               "post_date": reply_time2,
+                                               "sentiment": "",
+                                               "content": reply_content2,
+                                               "status_dict": status_dict_reply2})
                         
                         # APPEND REPLY_LIST
-                        reply_list.append({"id": k+1,
+                        reply_list.append({"id_reply": k+1,
+                                           "id_comment": j+1,
                                            "post_date": reply_time,
-                                           "post_item_id": i,
-                                           "setiment": "",
+                                           "sentiment": "",
                                            "content": reply_content,
-                                           "status_dict": status_dict_reply,
-                                           "replys": reply_list2})
+                                           "status_dict": status_dict_reply})
                     
                     # APPEND COMMENT LIST
-                    comment_list.append({"id": j+1,
+                    comment_list.append({"id_comment": j+1,
+                                         "id_post": i,
                                          "post_date": comment_time,
-                                         "post_item_id": i,
-                                         "setiment": "",
+                                         "sentiment": "",
                                          "content": comment_content,
                                          "status_dict": status_dict_comment,
                                          "replys": reply_list})
 
                 # APPEND POST
-                post_list.append({"id":i,
-                                  "post_date": post_date,
-                                  "username": user,
-                                  "setiment": "",
-                                  "source_division": "01",
-                                  "title": title,
+                post_list.append({"id_post":i,
                                   "content": content,
-                                  "url": url,
+                                  "post_date": post_date,
+                                  "sentiment": "",
                                   "share": share,
+                                  "source_division": 1,
+                                  "title": title,
                                   "total comment": total_comment,
+                                  "url": url,
+                                  "username": user,
                                   "status_dict": status_dict,
                                   "comments": comment_list})
                 
@@ -519,7 +533,7 @@ def crawl(url, keyword):
         
         
 
-    with open('facebook3.json', 'w', encoding='utf-8') as f:
+    with open('face1.json', 'w', encoding='utf-8') as f:
         json.dump(post_list, f, ensure_ascii=False, indent=4)
 
     # 8. Đóng browser
