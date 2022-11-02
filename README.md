@@ -71,3 +71,9 @@ python crawl(url, keyword)
 }
 ```
 
+## Model Architecture
+
+<p float="left" align="center">
+    <img width="600" src="./csdl.png" />  
+</p>
+
