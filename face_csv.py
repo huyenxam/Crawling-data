@@ -68,31 +68,31 @@ def save_csv(path):
 
 
     # SAVE POSTS
-    posts = codecs.open('./posts.csv', 'w', 'utf-8')
+    posts = codecs.open('./data/posts.csv', 'w', 'utf-8')
     with posts:
         writer = csv.writer(posts)
         writer.writerows(list_post)
 
 
     # SAVE COMMENT
-    comments = codecs.open('./comments.csv', 'w', 'utf-8')
+    comments = codecs.open('./data/comments.csv', 'w', 'utf-8')
     with comments:
         writer = csv.writer(comments)
         writer.writerows(list_comment)
 
 
     # SAVE REPLYS
-    replys = codecs.open('./replys.csv', 'w', 'utf-8')
+    replys = codecs.open('./data/replys.csv', 'w', 'utf-8')
     with replys:
         writer = csv.writer(replys)
         writer.writerows(list_reply)
 
 
     # SAVE POST_STATUS
-    status = codecs.open('./status.csv', 'w', 'utf-8')
+    status = codecs.open('./data/status.csv', 'w', 'utf-8')
     with status:
         writer = csv.writer(status)
         writer.writerows(list_status)
 
 
-save_csv("face.json")
+save_csv("./data/face.json")

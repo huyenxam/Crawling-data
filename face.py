@@ -532,8 +532,7 @@ def crawl(url, keyword):
                 print("error post")
         
         
-
-    with open('face1.json', 'w', encoding='utf-8') as f:
+    with open('./data/face.json', 'w', encoding='utf-8') as f:
         json.dump(post_list, f, ensure_ascii=False, indent=4)
 
     # 8. Đóng browser
