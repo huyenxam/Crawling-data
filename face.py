@@ -542,4 +542,4 @@ def crawl(url, keyword):
     return post_list
 
 
-crawl("https://www.facebook.com/groups/174764463261090", "fresher")
+crawl("https://www.facebook.com/groups/174764463261090", "python")
