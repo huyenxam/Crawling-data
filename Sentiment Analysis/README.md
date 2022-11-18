@@ -4,7 +4,7 @@ python sentiment_entity(path)
 ```
 
 ## Input
-- path: đường dẫn đến file comments.csv để lấy thông tin comment
+- path: đường dẫn đến file csv chứa nội dung comment
 
 ## Output
 - count_label: thống kê số lượng nhãn cảm xúc
